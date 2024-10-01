@@ -1,0 +1,383 @@
+/* Variabili globali per i colori: sfondo, blur, testo e accento */
+:root {
+	--bg: darkblue;
+	--blur: #05152060;
+	--text: whitesmoke;
+	--accent: #007fae;
+}
+
+/* Proprietà da applicare ad ogni elemento */
+* {
+	touch-action: manipulation;
+	margin: 0;
+	box-sizing: border-box;
+	font-weight: lighter;
+	font-family: Helvetica, Arial, sans-serif;
+	border-radius: 0;
+}
+
+/* Impostazione dei colori di testo e sfondo*/
+body {
+	background-color: var(--bg);
+	color: var(--text);
+}
+
+/* Dimensioni del testo */
+h1 {
+	font-size: 48px;
+}
+p, a, li {
+	font-size: 25px;
+}
+
+/* Barra di navigazione */
+#navigation {
+	position: fixed;
+	top: 0;
+	z-index: 99;
+	display: flex;
+	width: 100%;
+	background-color: var(--blur);
+	-webkit-backdrop-filter: blur(10px);
+	backdrop-filter: blur(10px);
+	border-bottom: 2px var(--text) solid;
+}
+
+/* Link della barra di navigazione */
+#navigation a {
+	padding: 15px;
+	font-size: 15px;
+	text-decoration: none;
+	color: var(--text);
+	border-right: 2px var(--text) solid;
+}
+
+/* Voce principale della barra di navigazione */
+#navigation a:first-child {
+	font-weight: bold;
+}
+
+/* Comportamento in caso di cursore su bottone  */
+#navigation a:hover, #menu-button:hover, #gallery button:hover, form input[type=submit]:hover, form input[type=reset]:hover, .accordion-button:hover, button:hover {
+	background-color: var(--text);
+	color: var(--bg);
+	cursor: pointer;
+}
+
+/* Comportamento in caso di pressione su bottone  */
+#navigation a:active, #menu-button:active, #gallery button:active, form input[type=submit]:active, form input[type=reset]:active, .accordion-button:active, button:active {
+	background-color: var(--accent);
+	color: var(--bg);
+}
+
+#first {
+	margin-top: 49px;
+}
+
+/* Animazione del gradiente della sezione speciale */
+@keyframes gradient {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
+}
+
+/* Sezione speciale (splash) con gradiente di sfondo */
+#splash {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	width: 100%;
+	height: 100vh;
+	background: linear-gradient(45deg, var(--bg), var(--accent), var(--text));
+	background-size: 400% 400%;
+	-webkit-backdrop-filter: blur(100px);
+	backdrop-filter: blur(100px);
+	animation: gradient 5s ease infinite;
+	border-bottom: 2px var(--text) solid;
+}
+
+/* Animazione del "cursore del testo" al termine dei titoli */
+@keyframes intermittent {
+	0% {
+		opacity: 0%;
+	}
+	100% {
+		opacity: 100%;
+	}
+}
+
+/* "Cursore del testo" al termine dei titoli */
+.text-cursor {
+	animation: intermittent 2s ease infinite;
+	color: var(--accent);
+}
+
+/* Sezione singola semplice */
+.single {
+	width: 100%;
+	padding: 20px;
+	border-bottom: 2px var(--text) solid;
+}
+
+/* Sezione doppia: contenitore di due elementi */
+.double {
+	display: flex;
+}
+
+/* Elementi della sezione doppia (due necessari) */
+.half {
+	width: 50%;
+	height: 30vw;
+	min-height: 250px;
+	padding: 20px;
+	border-bottom: 2px var(--text) solid;
+}
+
+/* Lato sinistro della sezione doppia (contenente bordo centrale) */
+.left {
+	border-right: 2px var(--text) solid;
+}
+
+/* Lato destro della sezione doppia (contenente foto) */
+.right {
+	background-size: cover;
+	background-repeat: none;
+}
+
+/* Piè di pagina */
+#foot {
+	padding: 20px 20px 69px 20px;
+	background-color: var(--text);
+	color: var(--bg);
+}
+
+/* Bottone per il menù mobile */
+#menu-button {
+	display: none;
+}
+
+/* Campi di testo, bottoni del form e bottoni generici */
+form input[type=text], form input[type=email], form textarea, form input[type=submit], form input[type=reset], button {
+	padding: 15px 0;
+	font-size: 15px;
+	background-color: var(--bg);
+	color: var(--text);
+	border-top: none;
+	border-right: none;
+	border-left: none;
+	border-bottom: 2px var(--text) solid;
+}
+form input[type=text], form input[type=email], form textarea {
+	padding: 15px 0;
+}
+form input[type=submit], form input[type=reset], button {
+	padding: 15px;
+}
+
+/* Campi di testo del form a larghezza intera */
+form input[type=text], form input[type=email], form textarea {
+	width: 100%;
+}
+
+/* Textarea non ridimensionabile */
+textarea {
+	resize: none;
+}
+
+/* Contenitore della galleria */
+#gallery {
+	display: flex;
+	width: 100%;
+	height: 90vh;
+	border-bottom: 2px var(--text) solid;
+}
+
+/* Bottone della galleria */
+#gallery button {
+	width: 10%;
+	font-size: 20px;
+	background-color: var(--bg);
+	color: var(--text);
+	border: none;
+}
+
+/* Immagine della galleria */
+#gallery #gallery-img {
+	width: 80%;
+	object-fit: cover;
+	border-left: 2px var(--text) solid;
+	border-right: 2px var(--text) solid;
+}
+
+/* Contenitore dell'accordion */
+.accordion {
+	border-bottom: 2px var(--text) solid;
+}
+
+/* Bottone dell'accordion */
+.accordion-button {
+	padding: 20px;
+	cursor: pointer;
+}
+
+/* Testo interno dell'accordion */
+.accordion-text {
+	display: none;
+	margin: 20px;
+}
+
+/* Banner del salvataggio dei dati */
+#data-banner {
+	z-index: 100;
+	position: fixed;
+	top: 0;
+	display: none;
+	width: 100%;
+	height: 100vh;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	padding: 40px;
+	text-align: center;
+	background-color: var(--blur);
+	-webkit-backdrop-filter: blur(10px);
+	backdrop-filter: blur(10px);
+}
+
+/* Bottone del banner del salvataggio dei dati */
+#data-banner #data-button {
+	background-color: none !important;
+}
+
+/* Allineamento alla fine della colonna (a destra) in flexbox */
+.column-end {
+	align-self: flex-end;
+}
+
+/* Triangoli chat */
+.triangle {
+	display: none;
+	width: 0;
+	height: 0;
+}
+#ai-1-triangle {
+	border-left: 25px solid transparent;
+	border-top: 15px solid var(--accent);
+	float: right;
+}
+#ai-2-triangle {
+	border-right: 25px solid transparent;
+	border-top: 15px solid var(--text);
+	margin-bottom: 20px;
+}
+
+/* Contenitore chat con AI */
+#ai {
+	display: flex;
+	flex-direction: column;
+	row-gap: 20px;
+}
+
+/* Chat con AI */
+#ai-1, #ai-2 {
+	display: none;
+	width: fit-content;
+	padding: 10px;
+}
+#ai-1 {
+	background-color: var(--accent);
+	color: var(--bg);
+}
+
+/* Schermi piccoli */
+@media only screen and (max-width: 800px) {
+	/* Riduzione delle dimensioni del testo */
+	h1 {
+		font-size: 32px;
+	}
+	p, a, li {
+		font-size: 17px;
+	}
+
+	/* Incolonnamento barra di navigazione = menù mobile */
+	#navigation {
+		flex-direction: column;
+		border-bottom: none;
+	}
+
+	/* Link della barra di navigazione */
+	#navigation a {
+		text-align: center;
+		border-right: none;
+		border-bottom: 2px var(--text) solid;
+	}
+
+	/* Link della barra di navigazione (escludendo la voce principale) */
+	#navigation a:not(:first-child) {
+		display: none;
+	}
+
+	/* Incolonnamento della sezione doppia */
+	.double {
+		flex-direction: column;
+	}
+
+	/* Elementi della sezione doppia a larghezza intera */
+	.half {
+		width: 100%;
+	}
+
+	/* Rimozione del bordo centrale non più necessario */
+	.left {
+		border-right: none;
+	}
+
+	/* Bottone per il menù mobile */
+	#menu-button {
+		display: flex;
+		position: fixed;
+		bottom: 0;
+		z-index: 98;
+		width: 100%;
+		padding: 15px;
+		font-size: 15px;
+		justify-content: center;
+		background-color: var(--blur);
+		border-top: 2px var(--text) solid;
+		-webkit-backdrop-filter: blur(10px);
+		backdrop-filter: blur(10px);
+	}
+
+	/* Riduzione altezza contenitore della galleria */
+	#gallery {
+		height: 40vh;
+	}
+}
+
+/* Schermi grandi */
+@media only screen and (min-width: 801px) {
+	/* Link della barra di navigazione (se menù mobile chiuso in precedenza) */
+	#navigation a:not(:first-child) {
+		display: block !important;
+	}
+
+	/* Ordine inverso per gli elementi di una sezione doppia */
+	.reverse {
+		flex-direction: row-reverse;
+	}
+
+	/* Correzione bordi sezione doppia invertita */
+	.reverse .left {
+		border-right: none;
+	}
+	.reverse .right {
+		border-right: 2px var(--text) solid;
+	}
+}
